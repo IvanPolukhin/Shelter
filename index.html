@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/972c32155a.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Shelter</title>
 </head>
 
 <body>
@@ -73,12 +74,12 @@
         <div class="container">
             <div class="order__inner">
                 <div class="order__icon">
-                    <div class="order__left">
+                    <button onclick="changeSlide(-1)" class="order__left">
                         <i class="fa-solid fa-arrow-up-long fa-rotate-270"></i>
-                    </div>
-                    <div class="order__right">
+                    </button>
+                    <button onclick="changeSlide(1)" class="order__right">
                         <i class="fa-solid fa-arrow-up-long fa-rotate-90"></i>
-                    </div>
+                    </button>
                 </div>
                 <div class="order__title">
                     <h1 class="order__text">Our friends who <br>
@@ -212,6 +213,7 @@
             </div>
         </div>
     </footer>
+    <script src="Js/main.js"></script>
 </body>
 
 </html>

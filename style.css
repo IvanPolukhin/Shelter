@@ -29,7 +29,7 @@ a {
 
 .container {
     width: 100%;
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -216,6 +216,7 @@ a {
     color: #000;
     position: absolute;
     top: 50%;
+    left: 0;
     z-index: 1;
     border: solid 2px #F1CDB3;
     border-radius: 100%;
@@ -425,7 +426,7 @@ a {
     background: linear-gradient(to bottom right, #5B483A, #211F20);
 }
 
-.footer__inner { 
+.footer__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -469,4 +470,122 @@ a {
 
 .footer__photo {
     margin-top: 50px;
+}
+
+/* Media */
+
+@media(max-width:768px) {
+    .container {
+        margin: 0 auto;
+        max-width: 738px;
+    }
+
+    /* Intro */
+
+    .intro {
+        height: 1165px;
+    }
+
+    .intro__content {
+        margin-top: -500px;
+        margin-left: 200px;
+    }
+
+    .intro__btn {
+        margin-left: 65px;
+    }
+
+    .intro__img {
+        position: absolute;
+        top: -11px;
+        z-index: 20;
+        width: 569px;
+        height: 593px;
+        left: calc(50% - 569px/2 + 70px);
+        bottom: 0px;
+    }
+
+    /* About */
+
+    .about__inner {
+        flex-wrap: wrap;
+    }
+
+    .about__content {
+        width: 100%;
+        order: 1;
+        padding-left: 175px;
+    }
+
+    .about__photo {
+        width: 100%;
+        order: 2;
+        margin-top: 70px;
+        margin-left: 215px;
+    }
+
+    /* Order */
+
+    .order__slider:first-child {
+        margin-right: 40px;
+    }
+
+    .order__slider {
+        width: 269px;
+        height: 435px;
+        flex: 0 0 auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .order__right {
+        left: 690px;
+    }
+
+    .order__slider:nth-child(n+3) {
+        display: none;
+    }
+
+    /* Help */
+
+    .help__item {
+        width: 33.33333%;
+    }
+
+    /* Donation */
+
+    .donation__inner {
+        flex-wrap: wrap;
+    }
+
+    .donation__info {
+        order: 1;
+        margin-bottom: 60px;
+    }
+
+    .donation__photo {
+        order: 2;
+    }
+
+    /* Footer */
+
+    .footer__inner {
+        flex-wrap: wrap;
+        position: relative;
+        height: 639px;
+    }
+
+    .footer__item {
+        margin-top: -350px;
+        margin-right: 0;
+        padding: 0 65px;
+    }
+
+    .footer__photo {
+        position: absolute;
+        width: 300px;
+        height: 310px;
+        left: calc(50% - 300px/2);
+        top: 275px;
+    }
 }
