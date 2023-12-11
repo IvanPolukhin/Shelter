@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-size: 14px;
     font-weight: 400;
-    color: #6c7279;
+    color: #000;
     background-color: #fff;
 }
 
@@ -80,6 +80,13 @@ a {
     margin-right: 0;
 }
 
+.nav__link.active {
+    color: #000;
+}
+
+.nav__link.active::after {
+    opacity: 1;
+}
 
 .nav__link::after {
     display: block;
@@ -106,11 +113,52 @@ a {
     padding: 10px;
 }
 
-.nav__burger .nav__line {
+.burger__icon.show {
+    display: block;
+}
+
+.burger__icon.rotate {
+    transform: rotate(90deg);
+    transition: all .2s linear;
+    display: block;
+}
+
+.nav__burger .burger__line {
     width: 30px;
     height: 3px;
     background: #000;
     margin: 5px;
+}
+
+/* menu */
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.menu.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    background-color: #292929;
+}
+
+.menu li {
+    padding: 10px;
+}
+
+.menu li:first-child {
+    margin-top: 256px;
+}
+
+.menu a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Order */
@@ -151,6 +199,40 @@ a {
     padding-bottom: 30px;
 }
 
+.order__end {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.order__icon {
+    display: flex;
+    margin-right: 15px;
+    color: #CDCDCD;
+    background-color: #fff;
+    border: solid 2px #CDCDCD;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.order__icon:hover {
+    color: #000;
+    border: solid 2px #F1CDB3;
+
+}
+
+.order__icon:first-child {
+    margin-left: 18px;
+}
+
+.order__icon:last-child {
+    margin-right: 0;
+}
+
 .slider__img {
     margin-bottom: 33px;
     background-color: #fff;
@@ -177,34 +259,109 @@ a {
     background-color: #F1CDB3;
 }
 
-.order__end {
+.popup {
+    width: 900px !important;
+    height: 500px;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #fff;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.popup-image {
+    padding-top: 100px;
+    margin-left: 50px;
+}
+
+.popup-header {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 40px;
 }
 
-.order__icon {
-    border: solid 1px #CDCDCD;
+.pop__item {
+    width: 50%;
+}
+
+.popup__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-title {
+    margin-top: 56px;
+    color: #333;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+}
+
+.pop__type {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+}
+
+.popup__close-btn {
+    position: absolute;
+    left: 98%;
+    top: -6%;
+    border: #FDDCC4 3px solid;
     border-radius: 50%;
-    color: #CDCDCD;
-    padding: 10px 15px;
-    margin-right: 10px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #999;
 }
 
-.order__icon:first-child {
-    margin-left: 18px;
-    padding: 10px;
+.popup__close-btn:hover {
+    color: #333;
 }
 
-.order__icon:last-child {
-    margin-right: 0;
-    padding: 10px;
+.popup__content {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.popup__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup__btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.popup__btn:hover {
+    background-color: #555;
 }
 
 .num {
     color: #000;
-    border: solid 1px #F1CDB3;
+    border: solid 2px #F1CDB3;
     background-color: #F1CDB3;
 }
 
@@ -367,8 +524,34 @@ a {
         margin-left: 0px;
     }
 
+    .order__icon {
+        margin-right: 5px;
+    }
+
     .order__slider:nth-child(n+4) {
         display: none;
+    }
+
+    /* Menu */
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: -36px;
+        left: 0;
+        width: 100%;
+        height: 908px;
+        z-index: 1;
+        background-color: #292929;
+    }
+
+    .menu.rotate {
+        display: flex;
+    }
+
+    .menu.show {
+        display: flex;
     }
 
     /* Footer */

@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/972c32155a.js" crossorigin="anonymous"></script>
@@ -19,16 +18,24 @@
                     <div class="header__subtitle">Shelter for pets in Boston</div>
                 </div>
                 <div class="nav">
-                    <a href="#" class="nav__link">About the shelter</a>
-                    <a href="#" class="nav__link">Our pets</a>
-                    <a href="#" class="nav__link">Help the shelter</a>
-                    <a href="#" class="nav__link">Contacts</a>
+                    <a href="#" class="nav__link" id="active1">About the shelter</a>
+                    <a href="pets.html" class="nav__link">Our pets</a>
+                    <a href="#" class="nav__link" onclick="scrollToSection('help')">Help the shelter</a>
+                    <a href="#" class="nav__link" onclick="scrollToSection('contact')">Contacts</a>
                 </div>
-                <button class="nav__burger">
-                    <div class="nav__line"></div>
-                    <div class="nav__line"></div>
-                    <div class="nav__line"></div>
-                </button>
+                <div class="nav__burger">
+                    <div class="burger__icon" id="burger__icon">
+                        <div class="burger__line"></div>
+                        <div class="burger__line"></div>
+                        <div class="burger__line"></div>
+                    </div>
+                    <div class="menu" id="menu">
+                        <li><a href="#" class="menu__link">About the shelter</a></li>
+                        <li><a href="pets.html" class="menu__link">Our pets</a></li>
+                        <li><a href="#" class="menu__link" onclick="scrollToSection('help')">Help the shelter</a></li>
+                        <li><a href="#" class="menu__link" onclick="scrollToSection('contact')">Contacts</a></li>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -41,7 +48,7 @@
                         wide
                         and open heart. He or she will love you more than anybody else <br> in the world, you will see!
                     </div>
-                    <a href="#" class="intro__btn">Make a friend</a>
+                    <button onclick="scrollToSection('order')" class="intro__btn">Make a friend</button>
                 </div>
                 <div class="intro__photo">
                     <img class="intro__img" src="img/Header/start-screen-puppy.png" alt="">
@@ -75,14 +82,14 @@
             </div>
         </div>
     </section>
-    <section class="order">
+    <section class="order" id="order">
         <div class="container">
             <div class="order__inner">
                 <div class="order__icon">
-                    <button onclick="changeSlide(-1)" class="order__left">
+                    <button onclick="changeSlider(-1)" class="order__left" id="left">
                         <i class="fa-solid fa-arrow-up-long fa-rotate-270"></i>
                     </button>
-                    <button onclick="changeSlide(1)" class="order__right">
+                    <button onclick="changeSlider(1)" class="order__right" id="right">
                         <i class="fa-solid fa-arrow-up-long fa-rotate-90"></i>
                     </button>
                 </div>
@@ -90,30 +97,102 @@
                     <h1 class="order__text">Our friends who <br>
                         are looking for a house</h1>
                 </div>
+                <div class="popup">
+                    <div class="popup-content">
+                        <div class="popup-header">
+                            <div class="pop__item">
+                                <div class="popup-image">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="pop__item">
+                                <h2 class="popup-title"></h2>
+                                <span onclick="hidePopup()" class="popup__close-btn">&times;</span>
+    
+                            <div class="popup-body">
+                                    <div class="popup-info">
+                                        <div class="pop__type"><p><strong>Type:</strong> <span class="popup-type"></span></div>
+                                        <p><strong>Breed:</strong> <span class="popup-breed"></span></p>
+                                        <p><strong>Age:</strong> <span class="popup-age"></span></p>
+                                        <p><strong>Inoculations:</strong> <span class="popup-inoculations"></span></p>
+                                        <p><strong>Diseases:</strong> <span class="popup-diseases"></span></p>
+                                        <p><strong>Parasites:</strong> <span class="popup-parasites"></span></p>
+                                        <div class="popup-description">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="order__item">
-                    <div class="order__slider">
-                        <img class="slider__img" src="img/Order/pets-katrine.png" alt="">
-                        <div class="slider__name">Katrine</div>
-                        <button type="button" class="slider__btn">Learn more</button>
-                    </div>
-                    <div class="order__slider">
-                        <img class="slider__img" src="img/Order/pets-jennifer.png" alt="">
-                        <div class="slider__name">Jennifer</div>
-                        <button type="button" class="slider__btn">Learn more</button>
-                    </div>
-                    <div class="order__slider">
-                        <img class="slider__img" src="img/Order/pets-woody.png" alt="">
-                        <div class="slider__name">Woody</div>
-                        <button type="button" class="slider__btn">Learn more</button>
+                    <div class="order__slider-container">
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-katrine.png" alt="">
+                            <div class="slider__name">Katrine</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(4)" id="4" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-jennifer.png" alt="">
+                            <div class="slider__name">Jennifer</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(0)" id="0" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-woody.png" alt="">
+                            <div class="slider__name">Woody</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(2)" id="2" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-sophia.png" alt="">
+                            <div class="slider__name">Sophia</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(1)" id="1" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-timmy.png" alt="">
+                            <div class="slider__name">Timmy</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(5)" id="5" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-charly.png" alt="">
+                            <div class="slider__name">Charly</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(7)" id="7" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-scarlet.png" alt="">
+                            <div class="slider__name">Scarlett</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(3)" id="3" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
+                        <div class="order__slider">
+                            <img class="slider__img" src="img/Order/pets-freddie.png" alt="">
+                            <div class="slider__name">Freddie</div>
+                            <div class="order__button">
+                                <button onclick="showPopup(6)" id="6" type="button" class="slider__btn">Learn more</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="order__end">
-                    <button type="button" class="order__btn">Get to know the rest</button>
+                    <button onclick="redirectToAnotherPage()" type="button" class="order__btn">Get to know the rest</button>
                 </div>
             </div>
         </div>
     </section>
-    <section class="help">
+    <section class="help" id="help">
         <div class="container">
             <div class="help__inner">
                 <div class="help__title">
@@ -161,7 +240,7 @@
             </div>
         </div>
     </section>
-    <section class="donation">
+    <section class="donation" id="contact">
         <div class="container">
             <div class="donation__inner">
                 <div class="donation__photo">

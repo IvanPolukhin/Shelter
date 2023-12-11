@@ -1,11 +1,3 @@
-// scrollNav
-function scrollToSection(sectionId) {
-    let section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
 // Burger
 document.addEventListener('DOMContentLoaded', function () {
     let burgerIcon = document.getElementById('burger__icon');
@@ -25,51 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// scrollNav
+function scrollToSection(sectionId) {
+    let section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 // Nav
 let activeElement = document.getElementById('active1');
 
 activeElement.classList.add('active');
-
-// buttonInOrder
-function redirectToAnotherPage() {
-    window.location.href = 'file:///C:/rep/Shelter/Shelter/pets.html';
-}
-
-// Slider
-const prevButton = document.getElementById("left");
-const nextButton = document.getElementById("right");
-const carouselWrapper = document.querySelector('.order__slider-container');
-const carouselItems = document.querySelectorAll('.order__slider');
-const screenWidth = window.innerWidth;
-
-if (screenWidth >= 1280) {
-    var itemsPerPage = 3.3;
-} else if (screenWidth >= 768) {
-    var itemsPerPage = 1.8;
-} else {
-    var itemsPerPage = 1;
-}
-
-let currentPage = 0;
-let totalPages = Math.ceil(carouselItems.length / itemsPerPage);
-
-prevButton.addEventListener("click", () => {
-    if (currentPage === 0) {
-        currentPage = totalPages - 1;
-    } else {
-        currentPage--;
-    }
-    carouselWrapper.style.transform = `translateX(-${currentPage * (270 * itemsPerPage + 100 * (itemsPerPage - 1))}px)`;
-});
-
-nextButton.addEventListener("click", () => {
-    if (currentPage === totalPages - 1) {
-        currentPage = 0;
-    } else {
-        currentPage++;
-    }
-    carouselWrapper.style.transform = `translateX(-${currentPage * (270 * itemsPerPage + 100 * (itemsPerPage - 1))}px)`;
-});
 
 // OrderInfo
 const popup = document.querySelector('.popup');
@@ -82,6 +41,7 @@ const popupDiseases = popup.querySelector('.popup-diseases');
 const popupParasites = popup.querySelector('.popup-parasites');
 const popupDescription = popup.querySelector('.popup-description');
 const popupImage = popup.querySelector('img');
+
 const data = [
     {
         "name": "Jennifer",
